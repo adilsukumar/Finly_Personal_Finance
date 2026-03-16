@@ -1,0 +1,20 @@
+packages:
+  "recharts": "For rich data visualization and charts on the dashboard"
+  "date-fns": "For formatting and parsing dates in UI and charts"
+  "html2canvas": "For capturing the dashboard layout to export as an image for PDF"
+  "jspdf": "For generating the downloadable PDF report of expenses"
+  "react-hook-form": "For robust transaction form state management"
+  "@hookform/resolvers": "For Zod schema validation integration in forms"
+  "zod": "For schema validation in forms"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for merging tailwind classes without conflicts"
+  "lucide-react": "For beautiful consistent iconography"
+
+images:
+  - path: "artifacts/expense-tracker/public/images/obsidian-bg.png"
+    description: "Ultra dark cinematic abstract background, deep space black with very subtle neon purple and cyan volumetric lighting, smooth gradients, 8k resolution"
+    aspect_ratio: "16:9"
+
+notes:
+  - Expects the API to be available at /api with endpoints defined in the OpenAPI spec.
+  - Generates UI components with an ultra-dark, obsidian glassmorphism aesthetic with neon accents.

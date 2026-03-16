@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-success: hsl(var(--success));
+  --color-success-foreground: hsl(var(--success-foreground));
+
+  --color-chart-1: hsl(var(--chart-1));
+  --color-chart-2: hsl(var(--chart-2));
+  --color-chart-3: hsl(var(--chart-3));
+  --color-chart-4: hsl(var(--chart-4));
+  --color-chart-5: hsl(var(--chart-5));
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+}
+
+:root {
+  /* Teal / Mint Dark Theme */
+  --background: 205 40% 4%;      /* Very dark teal-navy */
+  --foreground: 0 0% 98%;        /* Crisp white */
+
+  --card: 200 35% 7%;            /* Dark teal card */
+  --card-foreground: 0 0% 98%;
+
+  --border: 193 40% 14%;         /* Subtle teal border */
+  --input: 200 35% 9%;           /* Input fields */
+  --ring: 174 100% 39%;          /* Teal ring — #00C6AC */
+
+  --primary: 174 100% 39%;       /* #00C6AC teal-green */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 205 30% 14%;      /* Dark teal elevated */
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 200 30% 11%;
+  --muted-foreground: 193 20% 58%;
+
+  --accent: 163 75% 49%;         /* #14E5A4 bright mint */
+  --accent-foreground: 205 40% 6%;
+
+  --destructive: 340 90% 60%;    /* Neon Pink/Red (kept for errors) */
+  --destructive-foreground: 0 0% 100%;
+
+  --success: 163 75% 49%;        /* #14E5A4 bright mint */
+  --success-foreground: 205 40% 6%;
+
+  --chart-1: 174 100% 39%;       /* #00C6AC */
+  --chart-2: 163 75% 49%;        /* #14E5A4 */
+  --chart-3: 181 100% 33%;       /* #00A5A7 */
+  --chart-4: 186 100% 29%;       /* #008596 */
+  --chart-5: 193 63% 29%;        /* #1B657B */
+
+  --radius: 0.75rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    /* Optional cinematic subtle grain/noise could go here via pseudo element */
+  }
+
+  /* Custom Scrollbar for sleek look */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-white/10 rounded-full hover:bg-white/20 transition-colors;
+  }
+}
+
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/90 border border-white/5 shadow-lg;
+  }
+  
+  .glass-panel-glow {
+    @apply bg-card/90 border border-primary/20 shadow-lg relative overflow-hidden;
+  }
+  
+  .glass-panel-glow::before {
+    content: '';
+    @apply absolute -inset-[100%] opacity-20 pointer-events-none;
+    background: radial-gradient(circle at 50% -20%, hsl(var(--primary) / 0.5), transparent 50%);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+  }
+  
+  .text-glow-accent {
+    text-shadow: 0 0 20px hsl(var(--accent) / 0.5);
+  }
+
+  .shadow-glow-primary {
+    box-shadow: 0 0 20px -5px hsl(var(--primary) / 0.4);
+  }
+  
+  .shadow-glow-destructive {
+    box-shadow: 0 0 20px -5px hsl(var(--destructive) / 0.4);
+  }
+}
